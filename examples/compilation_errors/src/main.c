@@ -1,4 +1,3 @@
-
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -18,8 +17,8 @@
 static volatile int temp; 
 static volatile int lux;
 
-void printingTask(void *pvParameters);
-void sensorTask(void *pvParameters);
+static void printingTask(void *pvParameters);
+static void sensorTask(void *pvParameters);
 
 /**
  * @brief Generate a random integer within a given range.
@@ -75,7 +74,7 @@ static void sensorTask (void *arg){
  * @note The task runs indefinitely and updates every 1.5 seconds.
  **/
 
-static void printTask(void *arg) {
+static void printingTask(void *arg) {
     (void)arg;
 
     //Wait till someone is listening
@@ -111,3 +110,4 @@ int main (void) {
 
     vTaskStartScheduler();
 
+}
